@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800");
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Montserrat", "sans-serif";
+  box-sizing: border-box;
+}
+
+.contenedor{
+    min-height: calc(100vh - 330px);
+}
+
+html {
+  overflow-x: hidden;
+}

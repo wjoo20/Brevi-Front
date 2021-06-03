@@ -1,0 +1,67 @@
+#fh5co-contact {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+#fh5co-contact #espacio {
+    width: 50px;
+    height: 302px;
+}
+
+#fh5co-contact h1 {
+    color: #4F4DB8;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    font-family: "Montserrat", "sans-serif" !important;
+}
+
+#fh5co-contact .form-group {
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 14px;
+}
+
+#fh5co-contact .form-group #textarea {
+    height: 150px;
+}
+
+#fh5co-contact form i {
+    padding: 10px;
+    min-width: 20px;
+    border: 1px solid #4F4DB8;
+    color: #4F4DB8;
+}
+
+#fh5co-contact Button {
+    border: 1px solid #4F4DB8;
+    background-color: transparent;
+    color: #4F4DB8;
+}
+
+#fh5co-contact Button:hover {
+    background-color: #4F4DB8;
+    color: white;
+}
+
+#fh5co-contact img {
+    margin-top: 5px;
+    width: 65%;
+    height: auto;
+}
+
+#fh5co-contact #banner {
+    text-align: center;
+    justify-content: center;
+}
+
+#fh5co-contact #row {
+    margin-top: 10px;
+    display: block;
+}
+
+#fh5co-contact #row i {
+    color: #9292BE;
+}

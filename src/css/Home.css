@@ -1,0 +1,42 @@
+.masthead {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.masthead .header-content {
+    max-width: 500px;
+    text-align: center;
+}
+
+.masthead .header-content h1 {
+    font-size: 30px;
+    color: black;
+    font-family: "Montserrat", "sans-serif" !important;
+}
+
+.but1 {
+    background-color: #35339d;
+}
+
+.but1:hover {
+    background-color: #4F4DB8e1;
+    border: #4F4DB8e1;
+}
+
+@media (min-width: 992px) {
+    .masthead {
+        height: auto;
+        min-height: 775px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .masthead .header-content {
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .masthead .header-content h1 {
+        font-size: 50px;
+    }
+}
