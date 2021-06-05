@@ -1,5 +1,5 @@
-import q1 from "../img/quotes-1.jpg";
-import q2 from "..//img/quotes-2.jpg";
+import q1 from "../../img/quotes-1.jpg";
+import q2 from "../../img/quotes-2.jpg";
 import { Col, Container, Row } from "react-bootstrap";
 
 export default function MisVisPage() {

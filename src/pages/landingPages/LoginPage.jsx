@@ -1,6 +1,6 @@
-import '../css/Login.css'
+import '../../css/Login.css'
 import { Container } from "react-bootstrap";
-import imagen2 from '../img/girl-ubication.svg'
+import imagen2 from '../../img/girl-ubication.svg'
 
 export default function LoginPage() {
     return (

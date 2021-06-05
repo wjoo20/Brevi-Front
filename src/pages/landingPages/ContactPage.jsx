@@ -1,5 +1,5 @@
 import { Col, Container, FormGroup, Row, Button } from 'react-bootstrap'
-import '../css/Contact.css'
+import '../../css/Contact.css'
 
 export default function ContactPage() {
     return (

@@ -1,5 +1,5 @@
 import { Col, Container, Row, Button } from "react-bootstrap";
-import "../css/Home.css";
+import "../../css/Home.css";
 
 export default function HomePage() {
     return (

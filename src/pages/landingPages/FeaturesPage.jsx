@@ -1,8 +1,8 @@
-import f1 from "../img/f1.jpg";
-import f2 from "../img/f2.jpg";
-import f3 from "../img/f3.jpg";
+import f1 from "../../img/f1.jpg";
+import f2 from "../../img/f2.jpg";
+import f3 from "../../img/f3.jpg";
 import { Container } from "react-bootstrap";
-import '../css/Features.css'
+import '../../css/Features.css'
 
 export default function FeaturesPage() {
     return (
