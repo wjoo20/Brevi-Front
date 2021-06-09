@@ -5,8 +5,10 @@ import HomePage from '../pages/landingPages/HomePage'
 import ContactPage from '../pages/landingPages/ContactPage'
 import LoginPage from '../pages/landingPages/LoginPage'
 import Landing from '../pages/landingPages/Landing'
-import listarBusesPage from '../pages/adminPages/listarBusesPage'
+import ListarBusesPage from '../pages/adminPages/ListarBusesPage'
 import ListarBuses from '../pages/adminPages/ListarBuses'
+import ListarVueltaPage from '../pages/adminPages/ListarVueltaPage'
+import ListarControlPage from '../pages/adminPages/ListarControlPage'
 
 
 export default function AppRouter() {
@@ -18,9 +20,9 @@ export default function AppRouter() {
                 <Route path="/features" component={FeaturesPage}/>
                 <Route path="/contact" component={ContactPage}/>    
                 <Route path="/login" component={LoginPage}/>            
-                <Route path="/listarBuses" component={listarBusesPage}/>
-                {/* <Route path="/listarVuelta" component={listarVueltaPage}/>
-                <Route path="/listarControl" component={listarControlPage}/> */}
+                <Route path="/listarBuses" component={ListarBusesPage}/>
+                <Route path="/listarVuelta" component={ListarVueltaPage}/>
+                <Route path="/listarControl" component={ListarControlPage}/>
             </Switch>                   
         </Router>        
     )
