@@ -1,9 +1,13 @@
 import q1 from "../../img/quotes-1.jpg";
 import q2 from "../../img/quotes-2.jpg";
 import { Col, Container, Row } from "react-bootstrap";
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 export default function MisVisPage() {
     return (
+        <>
+        <NavBar/>
         <Container className="contenedor">
             <div id="fh5co-reviews-outer" className="fh5co-reviews-outer container-fluid">
                 <Container>
@@ -32,5 +36,7 @@ export default function MisVisPage() {
             </div>
             <p id="espacio"></p>
         </Container>
+        <Footer/>
+        </>
     )
 }

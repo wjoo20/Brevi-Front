@@ -3,10 +3,13 @@ import f2 from "../../img/f2.jpg";
 import f3 from "../../img/f3.jpg";
 import { Container } from "react-bootstrap";
 import '../../css/Features.css'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 export default function FeaturesPage() {
     return (
         <>
+            <NavBar/>
             <Container className="contenedor">
                 <div id="fh5co-features" className="fh5co-features-outer">
                     <Container>
@@ -58,6 +61,7 @@ export default function FeaturesPage() {
                     </Container>
                 </div>
             </Container>
+            <Footer/>
         </>
     )
 }

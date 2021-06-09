@@ -3,16 +3,16 @@
     height: 80px;
 }
 
-.cont-iconos{
+.cont-iconos {
     margin-left: 100px !important;
 }
 
-.contenedor-links{
+.contenedor-links {
     background: #f03057 !important;
     margin-left: 190px !important;
 }
 
-.links{
+.links {
     margin-left: 80px !important;
 }
 
@@ -31,28 +31,28 @@
 
 .letra {
     padding: 18px !important;
-    color: #d4d5d8 !important;
+    color: #fff !important;
     font-size: 1.2rem !important;
     transition: font-size color .5s !important;
 }
 
 .letra:hover {
-    color: #fff !important;
+    color: #4F4DB8 !important;
 }
 
 @media screen and (max-width: 1400px) {
-    .contenedor-links{
+    .contenedor-links {
         margin-left: 50px !important;
     }
 }
 
 @media screen and (max-width: 1125px) {
-    .contenedor-links{
+    .contenedor-links {
         margin-left: 30px !important;
     }
     .letra {
         padding: 14px !important;
-        color: #d4d5d8 !important;
+        color: #fff !important;
         font-size: 1rem !important;
     }
 }

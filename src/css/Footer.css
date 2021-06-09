@@ -11,7 +11,7 @@
     width: 100%;
     padding: 50px;
     height: 250px;
-    background: #2e3149;
+    background: #4F4DB8;
     overflow: hidden;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .footer-outer .column-3-3 a {
-    color: #b5b5c8;
+    color: #E8E9EE;
 }
 
 .footer-outer .column-3-3 .social-icons-footer a:hover {
@@ -126,17 +126,11 @@
     height: 1px;
     width: 60%;
     margin: 0 auto;
-    border: 1px solid #434769;
+    border: 1px solid #8E8EBB;
     display: block;
     margin-top: 50px;
 }
 
-.footer-outer .copyright {
-    color: #565b87;
-    text-align: center;
-    font-size: 13px;
-    padding: 40px 0;
-}
 
 /* .google-play-btn {
     margin-left: 10px;
@@ -203,7 +197,7 @@
         height: 1px;
         width: 100%;
         margin: 0 auto;
-        border: 1px solid #434769;
+        border: 1px solid #8E8EBB;
         display: block;
         margin-top: 110px;
     }

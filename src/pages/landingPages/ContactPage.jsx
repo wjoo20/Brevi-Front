@@ -1,9 +1,12 @@
 import { Col, Container, FormGroup, Row, Button } from 'react-bootstrap'
 import '../../css/Contact.css'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 export default function ContactPage() {
     return (
         <>
+            <NavBar/>
             <Container className="contenedor">
                 <div id="fh5co-contact" classnames="fh5co-contact-outer container-fluid">
                     <Container>
@@ -58,6 +61,7 @@ export default function ContactPage() {
                     </Container>
                 </div>
             </Container>
+            <Footer/>
         </>
     )
 }

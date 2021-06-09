@@ -34,7 +34,6 @@ export default function Footer() {
                         </div>
                     </div>
                     <span className="border-bottom-footer"></span>
-                    <p className="copyright">&copy; 2021 App. All rights reserved. Design by BREVI.</p>
                 </div>
             </div>
         </>
