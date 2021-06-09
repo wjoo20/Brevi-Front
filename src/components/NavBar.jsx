@@ -16,7 +16,7 @@ export default function NavBar() {
                         <a href="#home" className="letra">Inicio</a>
                         <a href="#misvis" className="letra">Brevi</a>
                         <a href="#features" className="letra">Características</a>
-                        <a href="#Contact" className="letra">Contáctanos</a>
+                        <a href="#contact" className="letra">Contáctanos</a>
                         <Nav.Link as={Link} exact to="/login" className="letra">Login</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

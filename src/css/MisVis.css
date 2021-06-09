@@ -24,7 +24,7 @@
     font-family: "Montserrat", "sans-serif" !important;
 }
 
-#fh5co-reviews-outer h2 {
+#fh5co-reviews-outer .titleVis {
     color: #f03057;
     text-transform: uppercase;
     font-size: 30px;
