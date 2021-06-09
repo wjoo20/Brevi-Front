@@ -13,10 +13,10 @@ export default function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto links">
-                        <Nav.Link as={Link} exact to="/home" className="letra">Inicio</Nav.Link>
-                        <Nav.Link as={Link} exact to="/misVis" className="letra">Brevi</Nav.Link>
-                        <Nav.Link as={Link} exact to="/features" className="letra">Características</Nav.Link>
-                        <Nav.Link as={Link} exact to="/contact" className="letra">Contáctanos</Nav.Link>
+                        <a href="#home" className="letra">Inicio</a>
+                        <a href="#misvis" className="letra">Brevi</a>
+                        <a href="#features" className="letra">Características</a>
+                        <a href="#Contact" className="letra">Contáctanos</a>
                         <Nav.Link as={Link} exact to="/login" className="letra">Login</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
