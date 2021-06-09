@@ -5,7 +5,7 @@ import HomePage from '../pages/landingPages/HomePage'
 import ContactPage from '../pages/landingPages/ContactPage'
 import LoginPage from '../pages/landingPages/LoginPage'
 import Landing from '../pages/landingPages/Landing'
-import listarBusesPages from '../pages/adminPages/listarBusesPages'
+import listarBusesPage from '../pages/adminPages/listarBusesPage'
 import ListarBuses from '../pages/adminPages/ListarBuses'
 
 
