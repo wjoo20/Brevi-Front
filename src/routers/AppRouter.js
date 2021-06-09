@@ -4,7 +4,7 @@ import MisVisPage from '../pages/landingPages/MisVisPage'
 import HomePage from '../pages/landingPages/HomePage'
 import ContactPage from '../pages/landingPages/ContactPage'
 import LoginPage from '../pages/landingPages/LoginPage'
-import listarBusesPages from '../pages/adminPages/listarBusesPages'
+import listarBusesPage from '../pages/adminPages/listarBusesPage'
 
 export default function AppRouter() {
     return (
@@ -15,8 +15,11 @@ export default function AppRouter() {
                 <Route path="/features" component={FeaturesPage}/>
                 <Route path="/contact" component={ContactPage}/>    
                 <Route path="/login" component={LoginPage}/>            
-                <Route path="/listarBuses" component={listarBusesPages}/>
+                <Route path="/listarBuses" component={listarBusesPage}/>
+                {/* <Route path="/listarVuelta" component={listarVueltaPage}/>
+                <Route path="/listarControl" component={listarControlPage}/> */}
             </Switch>                   
         </Router>        
     )
 }
+            
