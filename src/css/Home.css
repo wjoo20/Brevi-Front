@@ -17,13 +17,13 @@
 }
 
 .but1 {
-    background-color: #8E8EBB !important;
-    border: #8E8EBB !important;
+    background-color: #4F4DB8 !important;
+    border: #4F4DB8 !important;
 }
 
 .but1:hover {
-    background-color: #4F4DB8 !important;
-    border: #4F4DB8 !important;
+    background-color: #F03057 !important;
+    border: #F03057 !important;
 }
 
 @media (min-width: 992px) {

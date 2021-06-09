@@ -1,13 +1,13 @@
-import { Col, Container, FormGroup, Row, Button } from 'react-bootstrap'
+import { Col, Container, FormGroup, FormControl, Row, Button } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import '../../css/Contact.css'
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
 
 export default function ContactPage() {
     return (
         <>
-            <NavBar/>
-            <Container className="contenedor">
+            <Container id="contact" className="contenedor">
+                <br /><br />
                 <div id="fh5co-contact" classnames="fh5co-contact-outer container-fluid">
                     <Container>
                         <div className="text-center m-3">
@@ -21,25 +21,25 @@ export default function ContactPage() {
                                         <Col lg="6" classnames="mb-2">
                                             <FormGroup classnames="form-group">
                                                 <i className="fa fa-user-alt" />
-                                                <input type="text" classnames="form-control-alternative" placeholder="Ingrese su nombre" />
+                                                <FormControl type="text" classnames="form-control-alternative" placeholder="Ingrese su nombre" />
                                             </FormGroup>
                                         </Col>
                                         <Col lg="6" classnames="mb-2">
                                             <FormGroup classnames="form-group">
                                                 <i className="fa fa-envelope" />
-                                                <input type="text" classnames="form-control" placeholder="Ingrese su email" />
+                                                <FormControl type="text"  placeholder="Ingrese su email" />
                                             </FormGroup>
                                         </Col>
                                     </Row>
                                     <div classnames="form-group mt-2">
                                         <FormGroup classnames="form-group">
                                             <i className="fa fa-pen-alt" />
-                                            <input type="text" classnames="form-control" placeholder="Ingrese su asunto" />
+                                            <FormControl type="text" placeholder="Ingrese su asunto" />
                                         </FormGroup>
                                     </div>
                                     <div classnames="form-group mt-2">
                                         <FormGroup classnames="form-group">
-                                            <input type="textarea" id="textarea" classnames="form-control-alternative md-textarea" placeholder="Redacte su mensaje"/>
+                                            <FormControl type="textarea" id="textarea" classnames="form-control-alternative md-textarea" placeholder="Redacte su mensaje"/>
                                         </FormGroup>
                                     </div>
                                     <Button type="submit" classnames="button" value="Enviar">Enviar</Button>
@@ -61,7 +61,6 @@ export default function ContactPage() {
                     </Container>
                 </div>
             </Container>
-            <Footer/>
         </>
     )
 }

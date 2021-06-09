@@ -1,13 +1,10 @@
 import { Col, Container, Row, Button } from "react-bootstrap";
 import "../../css/Home.css";
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
 
 export default function HomePage() {
     return (
         <>
-        <NavBar/>
-        <Container className="contenedor">
+        <Container id="home" className="contenedor">
             <div className="mb-5 masthead">
                 <Container className="pt-5 h-100">
                     <Row className="h-100">
@@ -24,7 +21,6 @@ export default function HomePage() {
                 </Container>
             </div>
         </Container>
-        <Footer/>
         
         </>
         

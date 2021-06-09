@@ -4,7 +4,10 @@ import MisVisPage from '../pages/landingPages/MisVisPage'
 import HomePage from '../pages/landingPages/HomePage'
 import ContactPage from '../pages/landingPages/ContactPage'
 import LoginPage from '../pages/landingPages/LoginPage'
-import listarBusesPage from '../pages/adminPages/listarBusesPage'
+import Landing from '../pages/landingPages/Landing'
+import listarBusesPages from '../pages/adminPages/listarBusesPages'
+import ListarBuses from '../pages/adminPages/ListarBuses'
+
 
 export default function AppRouter() {
     return (
@@ -22,4 +25,3 @@ export default function AppRouter() {
         </Router>        
     )
 }
-            

@@ -34,6 +34,7 @@
     color: #fff !important;
     font-size: 1.2rem !important;
     transition: font-size color .5s !important;
+    text-decoration: none;
 }
 
 .letra:hover {
