@@ -1,6 +1,4 @@
 import { Col, Container, FormGroup, FormControl, Row, Button } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import '../../css/Contact.css'
 
 export default function ContactPage() {

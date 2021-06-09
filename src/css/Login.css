@@ -2,10 +2,6 @@ input {
     font-family: "Poppins", sans-serif;
 }
 
-.titulo {
-    color: #fff;
-}
-
 .container1 {
     position: relative;
     width: 100%;
@@ -56,9 +52,10 @@ form.sign-in-form {
 }
 
 .title {
-    font-size: 2.2rem;
-    color: #444;
+    font-size: 2.5rem;
+    color: #4F4DB8;
     margin-bottom: 30px;
+    font-weight: 400;
 }
 
 .input-field {
@@ -100,7 +97,7 @@ form.sign-in-form {
 
 .social-text {
     padding: 0.7rem 0;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .social-media {
@@ -225,9 +222,11 @@ form.sign-in-form {
     color: #fff;
 }
 
-.right-panel .image, .right-panel .content {
+.right-panel .image,
+.right-panel .content {
     transform: translateX(800px);
 }
+
 
 /* ANIMATION */
 
@@ -236,7 +235,8 @@ form.sign-in-form {
     right: 52%;
 }
 
-.container1.sign-up-mode .left-panel .image, .container1.sign-up-mode .left-panel .content {
+.container1.sign-up-mode .left-panel .image,
+.container1.sign-up-mode .left-panel .content {
     transform: translateX(-800px);
 }
 
@@ -254,7 +254,8 @@ form.sign-in-form {
     z-index: 1;
 }
 
-.container1.sign-up-mode .right-panel .image, .container1.sign-up-mode .right-panel .content {
+.container1.sign-up-mode .right-panel .image,
+.container1.sign-up-mode .right-panel .content {
     transform: translateX(0%);
 }
 
@@ -277,7 +278,8 @@ form.sign-in-form {
         transform: translate(-50%, -100%);
         transition: 1s 0.8s ease-in-out;
     }
-    .signin-signup, .container.sign-up-mode .signin-signup {
+    .signin-signup,
+    .container.sign-up-mode .signin-signup {
         left: 50%;
     }
     .panels-container {
@@ -334,13 +336,16 @@ form.sign-in-form {
         bottom: 32%;
         right: initial;
     }
-    .container.sign-up-mode .left-panel .image, .container.sign-up-mode .left-panel .content {
+    .container.sign-up-mode .left-panel .image,
+    .container.sign-up-mode .left-panel .content {
         transform: translateY(-300px);
     }
-    .container.sign-up-mode .right-panel .image, .container.sign-up-mode .right-panel .content {
+    .container.sign-up-mode .right-panel .image,
+    .container.sign-up-mode .right-panel .content {
         transform: translateY(0px);
     }
-    .right-panel .image, .right-panel .content {
+    .right-panel .image,
+    .right-panel .content {
         transform: translateY(300px);
     }
     .container.sign-up-mode .signin-signup {

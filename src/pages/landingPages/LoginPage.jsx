@@ -1,16 +1,14 @@
 import '../../css/Login.css'
-import { Container } from "react-bootstrap";
 import imagen2 from '../../img/girl-ubication.svg'
 
 export default function LoginPage() {
     return (
-        <Container className="contenedor">
             <div className="container1">
                 <div className="forms-container">
                     <div className="signin-signup">
                         <form action="" className="sign-in-form formulario">
-                            <h2 className="title titulo">
-                                Bienvenido
+                            <h2 className="title">
+                                Bienvenido a Brevi
                         </h2>
                             <div className="input-field">
                                 <i className="fas fa-envelope"></i>
@@ -20,7 +18,7 @@ export default function LoginPage() {
                                 <i className="fas fa-lock"></i>
                                 <input type="password" placeholder="Ingrese su contraseña" />
                             </div>
-                            <input type="submit" name="" id="" value="Login" className="btn btn1 solid" />
+                            <input type="submit" name="" id="" value="Login" className="btn1 solid" />
                             <p className="social-text">
                                 O inicie sesión directamente desde Google
                         </p>
@@ -42,6 +40,5 @@ export default function LoginPage() {
                     </div>
                 </div>
             </div>
-        </Container>
     )
 }
