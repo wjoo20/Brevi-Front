@@ -1,5 +1,5 @@
 .fh5co-hero-wrapper {
-    background: #f03057 !important;
+    background: #8e8ebb !important;
     height: 80px;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .contenedor-links {
-    background: #f03057 !important;
+    background: #8e8ebb !important;
     margin-left: 190px !important;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .letra:hover {
-    color: #4F4DB8 !important;
+    color: white !important;
 }
 
 @media screen and (max-width: 1400px) {
