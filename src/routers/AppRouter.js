@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import LoginPage from '../pages/landingPages/LoginPage'
 import Landing from '../pages/landingPages/Landing'
-import ListarBusesPage from '../pages/adminPages/ListarBusesPage'
+import RastreoBusesPage from '../pages/adminPages/RastreoBusesPage'
 import ListarBuses from '../pages/adminPages/ListarBuses'
 import ListarVueltaPage from '../pages/adminPages/ListarVueltaPage'
 import ListarControlPage from '../pages/adminPages/ListarControlPage'
@@ -18,7 +18,7 @@ export default function AppRouter() {
                 <Route path="/admin/buses" component={ListarBuses} />
                 <Route path="/admin/rutas" component={ListarBuses} />
                 <Route path="/admin/consulta" component={ListarVueltaPage} />
-                <Route path="/admin/listarBuses" component={ListarBusesPage} />
+                <Route path="/admin/rastreoBuses" component={RastreoBusesPage} />
             </Switch>
         </Router>
     )
