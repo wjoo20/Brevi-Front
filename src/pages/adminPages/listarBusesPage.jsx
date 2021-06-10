@@ -10,7 +10,7 @@ export default function listarBusesPages() {
             <SideBar/>
             <Map 
                 googleMapURL = {mapURL}
-                containerElement = {<div style = {{height: '650px', width: '1268px', marginLeft:'250px'}}/>}
+                containerElement = {<div style = {{height: '650px', width: '100%'}}/>}
                 mapElement = {<div style={{height: '100%'}}/>}
                 loadingElement = {<p>Cargando...</p>}            
             />
