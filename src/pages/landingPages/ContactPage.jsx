@@ -4,7 +4,7 @@ import '../../css/Contact.css'
 export default function ContactPage() {
     return (
         <>
-            <Container id="contact" className="contenedor">
+            <Container id="contact">
                 <br /><br />
                 <div id="fh5co-contact" classnames="fh5co-contact-outer container-fluid">
                     <Container>

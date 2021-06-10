@@ -11,12 +11,15 @@ export default function AppRouter() {
     return (
         <Router>
             <Switch>
-                <Route path="/home" component={Landing}/>   
-                <Route path="/login" component={LoginPage}/>            
-                <Route path="/listarBuses" component={ListarBusesPage}/>
-                <Route path="/listarVuelta" component={ListarVueltaPage}/>
-                <Route path="/listarControl" component={ListarControlPage}/>
-            </Switch>                   
-        </Router>        
+                <Route path="/home" component={Landing} />
+                <Route path="/login" component={LoginPage} />
+            </Switch>
+            <Switch>
+                <Route path="/admin/buses" component={ListarBuses} />
+                <Route path="/admin/rutas" component={ListarBuses} />
+                <Route path="/admin/consulta" component={ListarVueltaPage} />
+                <Route path="/admin/listarBuses" component={ListarBusesPage} />
+            </Switch>
+        </Router>
     )
 }

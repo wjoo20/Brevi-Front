@@ -4,7 +4,7 @@ import "../../css/Home.css";
 export default function HomePage() {
     return (
         <>
-        <Container id="home" className="contenedor">
+        <Container id="home">
             <div className="mb-5 masthead">
                 <Container className="pt-5 h-100">
                     <Row className="h-100">

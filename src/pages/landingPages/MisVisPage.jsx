@@ -5,7 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 export default function MisVisPage() {
     return (
         <>
-        <Container id="misvis" className="contenedor">
+        <Container id="misvis">
             <br /><br />
             <div id="fh5co-reviews-outer" className="fh5co-reviews-outer container-fluid">
                 <Container>

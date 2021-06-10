@@ -1,9 +1,13 @@
-import React from 'react'
+import SideBar from '../../components/SideBar'
+
 function listarBuses() {
     return (
-        <div>
-            
-        </div>
+        <>
+            <SideBar />
+            <div style={{ marginLeft: '250px', marginTop: '90px' }}>
+                Listar Buses
+            </div>
+        </>
     )
 }
 

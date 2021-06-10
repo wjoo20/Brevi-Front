@@ -7,7 +7,7 @@ import '../../css/Features.css'
 export default function FeaturesPage() {
     return (
         <>
-            <Container id="features" className="contenedor">
+            <Container id="features">
                 <div id="fh5co-features" className="fh5co-features-outer">
                     <Container>
                         <div className="row fh5co-features-grid-columns">

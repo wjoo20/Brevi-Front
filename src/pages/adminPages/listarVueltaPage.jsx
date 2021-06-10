@@ -1,9 +1,12 @@
-import React from 'react'
+import SideBar from '../../components/SideBar'
 
 export default function listarVueltaPage() {
     return (
-        <div>
-            
-        </div>
+        <>
+            <SideBar />
+            <div style={{ marginLeft: '250px', marginTop: '90px' }}>
+                Listar Vuelta
+            </div>
+        </>
     )
 }
