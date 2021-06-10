@@ -6,7 +6,7 @@ export default function LoginPage() {
             <div className="container1">
                 <div className="forms-container">
                     <div className="signin-signup">
-                        <form action="/admin/listarBuses" className="sign-in-form formulario">
+                        <form action="/admin/rastreoBuses" className="sign-in-form formulario">
                             <h2 className="title">
                                 Bienvenido a Brevi
                         </h2>

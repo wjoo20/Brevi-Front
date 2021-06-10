@@ -5,6 +5,12 @@ import * as IoIcons from 'react-icons/io';
 
 export const SidebarData = [
   {
+    title: 'Brevi',
+    path: '#',
+    icon: '',
+    cName: 'nav-title'
+  },
+  {
     title: 'Buses',
     path: '/admin/buses',
     icon: <AiIcons.AiFillHome />,
@@ -18,7 +24,7 @@ export const SidebarData = [
   },
   {
     title: 'Seguimiento',
-    path: '/admin/listarBuses',
+    path: '/admin/rastreoBuses',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
