@@ -13,25 +13,25 @@ export const SidebarData = [
   {
     title: 'Buses',
     path: '/admin/buses',
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaBus />,
     cName: 'nav-text'
   },
   {
     title: 'Rutas',
     path: '/admin/rutas',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaRoute />,
     cName: 'nav-text'
   },
   {
     title: 'Seguimiento',
     path: '/admin/rastreoBuses',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaMapMarkerAlt />,
     cName: 'nav-text'
   },
   {
     title: 'Consulta',
     path: '/admin/consulta',
-    icon: <IoIcons.IoMdPeople />,
+    icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   }
 ];

@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap");
+.page {
+    background-color: white;
+}
+
+.page .headerPage {
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: -3px -3px 7px #f1f1f1f6, 2px 2px 5px rgba(86, 92, 86, 0.527);
+}
+
+.page .headerPage h1 {
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #090735;
+}
+
+.page .bodyPage {
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: -3px -3px 7px #f1f1f1f6, 2px 2px 5px rgba(86, 92, 86, 0.527);
+}
+
+.page .titleBody {
+    border-bottom: 1px solid #F5F6FA;
+}
+
+.page .titleBody h1 {
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4F4DB8;
+}
+
+.page .titleBody a {
+    background-color: #4F4DB8 !important;
+    border-color: #4F4DB8 !important;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.page .titleBody a:hover {
+    background-color: #4645a3 !important;
+    border-color: #4645a3 !important;
+}
+
+.page .search{
+    background-color: #4F4DB8;
+}
+
+.page .search:hover{
+    background-color: #4F4DB8;
+}

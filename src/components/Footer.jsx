@@ -17,10 +17,10 @@ export default function Footer() {
                         <div className="column-2-3">
                             <nav className="footer-nav">
                                 <ul class="footer-nav-links">
-                                    <li className="active"><Nav.Link as={Link} exact to="/home" className="footer-navlink">Inicio</Nav.Link></li>
-                                    <li className="active"><Nav.Link as={Link} exact to="/misVis" className="footer-navlink">Brevi</Nav.Link></li>
-                                    <li className="active"><Nav.Link as={Link} exact to="/features" className="footer-navlink">Características</Nav.Link></li>
-                                    <li className="active"><Nav.Link as={Link} exact to="/contact" className="footer-navlink">Contáctanos</Nav.Link></li>
+                                    <li className="active"><Nav.Link as={Link} exact to="#home" className="footer-navlink">Inicio</Nav.Link></li>
+                                    <li className="active"><Nav.Link as={Link} exact to="#misvis" className="footer-navlink">Brevi</Nav.Link></li>
+                                    <li className="active"><Nav.Link as={Link} exact to="#features" className="footer-navlink">Características</Nav.Link></li>
+                                    <li className="active"><Nav.Link as={Link} exact to="#contact" className="footer-navlink">Contáctanos</Nav.Link></li>
                                     <li className="active"><Nav.Link as={Link} exact to="/login" className="footer-navlink">Login</Nav.Link></li>     
                                 </ul>
                             </nav>

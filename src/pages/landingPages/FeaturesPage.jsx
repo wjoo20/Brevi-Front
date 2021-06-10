@@ -22,12 +22,12 @@ export default function FeaturesPage() {
 
                             <div className="content col-sm-6 in-order-2 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
                                 <h1>Tiempo Real</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolor iste beatae ad adipisci, fugiat dignissimos pariatur, dolore nemo suscipit cum nisi earum voluptates nulla! </p>
+                                <p>Esta aplicación nos brindará las ubicaciones en tiempo real de los buses y de esa manera podremos organizar mejor nuestro tiempo y no desperdiciar el tiempo esperando. </p>
                             </div>
 
                             <div className="col-sm-6 in-order-3 sm-6-content wow animated fadeInLeft" data-wow-delay="0.22s">
-                                <h1>Servicio de taxis</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolor iste beatae ad adipisci, fugiat dignissimos pariatur, dolore nemo suscipit cum nisi earum voluptates nulla! </p>
+                                <h1>Marcado de Rutas</h1>
+                                <p>Tendremos la posibilidad de saber que ruta tomar para poder tener una mejor experiencia en el viaje con total seguridad. </p>
                             </div>
 
                             <div className="col-sm-6 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
@@ -41,7 +41,7 @@ export default function FeaturesPage() {
                             </div>
                             <div className="content col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
                                 <h1>Rutas Precisas</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolor iste beatae ad adipisci, fugiat dignissimos pariatur, dolore nemo suscipit cum nisi earum voluptates nulla! </p>
+                                <p>No tendremos error con las rutas debido a la gran seguridad de nuestra apliccación con la cual podremos movilizarnos de la mejor forma y con total seguridad por toda la ciudad. </p>
                             </div>
                         </div>
                     </Container>

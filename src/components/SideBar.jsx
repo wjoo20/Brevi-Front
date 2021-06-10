@@ -8,7 +8,7 @@ import { SidebarData } from '../data/SideBarData';
 import '../css/SideBar.css';
 import { IconContext } from 'react-icons';
 import { Container } from 'react-bootstrap';
-import user from '../img/avatar/avatar-1.png'
+import user from '../img/avatar/image2.jpg'
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -27,7 +27,7 @@ function Navbar() {
           <Container className="user">
             <a href="#" data-toggle="dropdown" className="nav-link dropdown-toggle nav-link-lg nav-link-user" onClick={showUserOptions}>
               <img alt="image" src={user} className="rounded-circle" />
-              <div className="d-sm-none d-lg-inline-block name-user">Hola, José Domingo</div>
+              <div className="d-sm-none d-lg-inline-block name-user">Fiorella Gamarra</div>
             </a>
             <div className={userOptions ? 'dropdown-menu dropdown-menu-right show' : 'dropdown-menu dropdown-menu-right'}>
               {/* <div className="dropdown-title">Logged in 5 min ago</div>
