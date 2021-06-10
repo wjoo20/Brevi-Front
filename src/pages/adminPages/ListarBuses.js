@@ -1,5 +1,5 @@
 import SideBar from '../../components/SideBar'
-import { Container, Row, Col, Table, Button } from 'react-bootstrap';
+import { Container, Row, Col, Table, Dropdown } from 'react-bootstrap';
 import '../../css/ListarBuses.css'
 
 function listarBuses() {
@@ -21,33 +21,134 @@ function listarBuses() {
                                 <h1>Buses Registrados</h1>
                                 <a href="#" className="btn btn-primary btn-sm">Nuevo Bus</a>
                             </div>                            
-                            <div className="body mt-3 p-3 mb-3">
-                                <Table striped bordered hover>
+                            <div className="body mt-3 p-3 mb-3 text-center">
+                                <Table striped bordered hover responsive>
                                     <thead>
                                         <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
+                                        <th>Placa</th>
+                                        <th>Nro. Serie</th>
+                                        <th>Marca</th>
+                                        <th>Modelo</th>
+                                        <th>Propietario</th>
+                                        <th>Categoría</th>
+                                        <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>ASD-568</td>
+                                        <td>555-999-555</td>
+                                        <td>Nissan</td>
+                                        <td>NV200</td>
+                                        <td>José Perez</td>
+                                        <td>Transporte</td>
+                                        <td>
+                                            <div className="text-center">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
+                                                        Opciones
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
+                                        
+                                        </td>
                                         </tr>
                                         <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
+                                        <td>5K2-345</td>
+                                        <td>453-344-676</td>
+                                        <td>Toyota</td>
+                                        <td>Corolla</td>
+                                        <td>Daniel Paredes</td>
+                                        <td>Transporte</td>
+                                        <td>
+                                            <div className="text-center">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
+                                                        Opciones
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
+                                        
+                                        </td>
                                         </tr>
                                         <tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
+                                        <td>F79-653</td>
+                                        <td>355-769-453</td>
+                                        <td>Toyota</td>
+                                        <td>Etios</td>
+                                        <td>Ernesto Martínez</td>
+                                        <td>Transporte</td>
+                                        <td>
+                                            <div className="text-center">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
+                                                        Opciones
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
+                                        
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>E4R-723</td>
+                                        <td>687-778-523</td>
+                                        <td>Mercedes Benz</td>
+                                        <td>Citaro</td>
+                                        <td>Pedro Torres</td>
+                                        <td>Transporte</td>
+                                        <td>
+                                            <div className="text-center">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
+                                                        Opciones
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
+                                        
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>ASD-568</td>
+                                        <td>555-999-555</td>
+                                        <td>Hyundai</td>
+                                        <td>County Personal</td>
+                                        <td>Raúl Miranda</td>
+                                        <td>Transporte</td>
+                                        <td>
+                                            <div className="text-center">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
+                                                        Opciones
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </div>
+                                        
+                                        </td>
                                         </tr>
                                     </tbody>
                                  </Table>                               

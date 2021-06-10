@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap");
 .page {
-    background-color: #F5F6FA;
+    background-color: #fff;
 }
 
 .page .headerPage {
@@ -36,13 +36,26 @@
 }
 
 .page .titleBody a {
-    background-color: #4F4DB8 !important;
-    border-color: #4F4DB8 !important;
+    background-color: #43C365 !important;
+    border-color: #43C365 !important;
     border-radius: 20px;
     font-size: 0.8rem;
 }
 
 .page .titleBody a:hover {
-    background-color: #4645a3 !important;
-    border-color: #4645a3 !important;
+    background-color: #3eaf5c !important;
+    border-color: #3eaf5c !important;
+}
+
+.page .body #dropdown-basic {
+    background-color: transparent !important;
+    border-radius: 20px;
+    border-color: #737476 !important;
+    color: #737476;
+}
+
+.page .body #dropdown-basic:hover {
+    background-color: #737476 !important;
+    border-color: #737476 !important;
+    color: #fff;
 }
