@@ -1,4 +1,5 @@
 import SideBar from '../../components/SideBar'
+import { Link } from 'react-router-dom'
 import { Container, Row, Col, Table, Dropdown } from 'react-bootstrap';
 import '../../css/ListarBuses.css'
 
@@ -19,10 +20,12 @@ function listarBuses() {
                         <div className="bodyPage">
                             <div className="titleBody mt-3 p-3 mb-3 d-flex justify-content-between">
                                 <h1>Buses Registrados</h1>
-                                <a href="#" className="btn btn-primary btn-sm">Nuevo Bus</a>
+                                <Link to={`/admin/nuevoBus`}>
+                                    <a id="nuevoBus" className="btn btn-success">Nuevo Bus</a>
+                                </Link>                                
                             </div>                            
                             <div className="body mt-3 p-3 mb-3 text-center">
-                                <Table striped bordered hover responsive>
+                                <Table bordered responsive>
                                     <thead>
                                         <tr>
                                         <th>Placa</th>

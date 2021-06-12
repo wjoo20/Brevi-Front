@@ -1,0 +1,43 @@
+@import url("./ListarBuses.css");
+#crearBus .body p {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: #6C757D !important;
+}
+
+#crearBus .body small {
+    font-family: 'Montserrat';
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #6C757D !important;
+}
+
+#crearBus .body label {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #545b61 !important;
+}
+
+#crearBus input {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #545b61 !important;
+    margin-top: 10px;
+}
+
+#crearBus .body Button {
+    margin-top: 20px;
+    background-color: #5856c9 !important;
+    border-color: #5856c9 !important;
+    font-size: 0.9rem;
+}
+
+#crearBus .body Button:hover {
+    background-color: #4F4DB8 !important;
+    border-color: #4F4DB8 !important;
+    font-size: 0.9rem;
+}

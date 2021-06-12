@@ -35,23 +35,23 @@
     color: #4F4DB8;
 }
 
-.page .titleBody a {
-    background-color: #43C365 !important;
-    border-color: #43C365 !important;
-    border-radius: 20px;
+.page .titleBody #nuevoBus {
+    background-color: #5856c9 !important;
+    border-color: #5856c9 !important;
+    border-radius: 25px;
     font-size: 0.8rem;
 }
 
-.page .titleBody a:hover {
-    background-color: #3eaf5c !important;
-    border-color: #3eaf5c !important;
+.page .titleBody #nuevoBus:hover {
+    background-color: #4F4DB8 !important;
+    border-color: #4F4DB8 !important;
 }
 
 .page .body #dropdown-basic {
     background-color: transparent !important;
     border-radius: 20px;
     border-color: #737476 !important;
-    color: #737476;
+    color: #6C757D;
 }
 
 .page .body #dropdown-basic:hover {
@@ -59,3 +59,29 @@
     border-color: #737476 !important;
     color: #fff;
 }
+
+.page .body thead tr {
+    background-color: #F5F5F5 !important;
+    border-color: #F5F5F5 !important;
+}
+
+.page .body thead tr th {
+    color: #6C757D !important;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.page .body tbody tr {
+    border-color: #fff !important;
+}
+
+.page .body tbody tr td {
+    background-color: white !important;
+    color: #6C757D !important;
+    font-size: 0.9rem;
+}
+
+
+/* Estilos para vista Crear Bus */
+
+@import url("./CrearBus.css");
