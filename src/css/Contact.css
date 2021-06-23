@@ -37,13 +37,14 @@
 
 #fh5co-contact Button {
     border: 1px solid #4F4DB8;
-    background-color: transparent;
-    color: #4F4DB8;
+    background-color: #4F4DB8;
+    color: #fff;
 }
 
 #fh5co-contact Button:hover {
-    background-color: #4F4DB8;
-    color: white;
+    background-color: #F03057;
+    border: 1px solid #F03057;
+    color: #fff;
 }
 
 #fh5co-contact img {

@@ -11,7 +11,7 @@ export default function HomePage() {
                         <Col lg="7" className="my-auto">
                             <div className="header-content mx-auto">
                                 <h1 className="mb-5">Descubre nuevas rutas y evita el caos del transporte público</h1>
-                                <Button className="but1" color="primary" size="lg">EMPEZAR</Button>
+                                <Button className="but1" color="primary" size="lg" href="#misvis">EMPEZAR</Button>
                             </div>
                         </Col>
                         <Col lg="5" className="pt-5 my-auto">

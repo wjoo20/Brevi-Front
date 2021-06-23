@@ -38,7 +38,7 @@
 }
 
 .letra:hover {
-    color: white !important;
+    color: #F03057 !important;
 }
 
 @media screen and (max-width: 1400px) {

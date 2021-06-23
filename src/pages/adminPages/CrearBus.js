@@ -1,10 +1,52 @@
-import React from 'react'
+import React, { useState }  from 'react'
+import ReactDOM from 'react-dom' 
 import SideBar from '../../components/SideBar'
 import { Container, Row, Col, Form, Button} from 'react-bootstrap';
 import '../../css/CrearBus.css'
 
-function crearBus() {
-    return (
+class crearBus extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            placa: '',
+            placaFound: '',
+            serie: '',
+            marca: '',
+            modelo: '',
+            propietario: '',
+            categoria: ''};
+        this.handleChangeSearch = this.handleChangeSearch.bind(this)
+        this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
+        this.searchBus = this.searchBus.bind(this)
+    };
+    handleChangeSearch(event) {
+        this.setState({placa: event.target.value});
+    };
+
+    handleSubmitSearch(event) {
+        alert('A name was submitted: ' + this.state.placa);
+        event.preventDefault();
+    };
+    searchBus(){
+        let placa =this.state.placa;
+        const url = `https://api-placa-get.herokuapp.com/placa/${placa}`
+
+        fetch(url,{
+            method:'GET'
+        }).then(response => response.json())
+        .then(res => {
+            this.setState({
+                 placaFound: res.bus_placa,
+                 serie: res.bus_serie,
+                 marca: res.bus_marca,
+                 modelo: res.bus_modelo,
+                 propietario: res.bus_propietario,
+                 categoria: res.bus_categoria
+             })
+        });
+    };
+    render(){
+        return (
         <>
             <SideBar />
             <Container id="crearBus" fluid className="page">
@@ -35,18 +77,15 @@ function crearBus() {
                                     <h1>Registro por búsqueda de placa</h1>                                    
                                 </div>                            
                                 <div className="body p-3 mb-3">
-                                    <Form>
-                                        <Form.Group className="group">
+                                        <Form.Group className="group" >
                                             <Form.Label>Nro. placa</Form.Label>
-                                            <Form.Control type="text" placeholder="Ejem: 412-DFG" />
+                                            <Form.Control onChange={this.handleChangeSearch} value={this.state.placa}  type="text" placeholder="Ejem: 412DFG" />
                                         </Form.Group>
                                         <div className="mt-2">
-                                            <Button variant="primary" type="submit">
+                                            <Button variant="primary" onClick={this.searchBus}>
                                                 Buscar
                                             </Button>
-                                        </div>
-                                        
-                                    </Form>     
+                                        </div>    
                                 </div>
                             </div>    
                         </Col>
@@ -62,49 +101,31 @@ function crearBus() {
                                     <div className="row mb-3">
                                         <div className="form-group col-md-6">
                                             <label>Nro. Placa</label>
-                                            <input type="text" className="form-control" required=""/>
-                                            <div className="invalid-feedback">
-                                                Ingrese un número de placa correcto.
-                                            </div>
+                                            <input type="text" className="form-control" value={this.state.placaFound} readOnly/>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Nro. Serie</label>
-                                            <input type="text" className="form-control" required=""/>
-                                            <div className="invalid-feedback">
-                                                Ingrese un número de serie correcto.
-                                            </div>
+                                            <input type="text" className="form-control" value={this.state.serie} readOnly/>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="form-group col-md-6">
                                             <label>Marca</label>
-                                            <input type="text" className="form-control" required=""/>
-                                            <div className="invalid-feedback">
-                                                Ingrese una marca correcta.
-                                            </div>
+                                            <input type="text" className="form-control" value={this.state.marca} readOnly/>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Modelo</label>
-                                            <input type="text" className="form-control" required=""/>
-                                            <div className="invalid-feedback">
-                                                Ingrese un modelo correcta.
-                                            </div>
+                                            <input type="text" className="form-control" value={this.state.modelo} readOnly/>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="form-group col-md-6">
                                             <label>Propietario</label>
-                                            <input type="text" className="form-control" required=""/>
-                                            <div className="invalid-feedback">
-                                                Ingrese una marca correcta.
-                                            </div>
+                                            <input type="text" className="form-control" value={this.state.propietario} readOnly/>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Categoría</label>
-                                            <input type="text" className="form-control" required=""/>
-                                            <div className="invalid-feedback">
-                                                Ingrese un modelo correcta.
-                                            </div>
+                                            <input type="text" className="form-control" value={this.state.categoria} readOnly/>
                                         </div>
                                     </div>
                                     <div className="row mb-0">
@@ -127,6 +148,9 @@ function crearBus() {
         </>
 
     )
+
+    }
+    
     
     
     
