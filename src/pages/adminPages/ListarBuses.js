@@ -7,6 +7,30 @@ function listarBuses() {
     return (
         <>
             <SideBar />
+            {/* Modal Editar Bus */}
+            <div class="modal fade"  id="editarBus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Editar Bus</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form className="needs-validation" novalidate="">
+                                <div className="form-group mb-0">
+                                    <label>Foto del vehículo</label><br/>
+                                    <input type="file" className="form-control mt-2"/>
+                                 </div>
+                                <input className="btn btn-primary save" type="submit" value="Guardar"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            
+            {/* End Modal Editar Bus */}
             <Container fluid className="page">
                 <Row>
                     <Col lg={12}>
@@ -53,7 +77,7 @@ function listarBuses() {
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
                                                         <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
@@ -76,7 +100,7 @@ function listarBuses() {
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
                                                         <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
@@ -99,7 +123,7 @@ function listarBuses() {
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
                                                         <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
@@ -122,7 +146,7 @@ function listarBuses() {
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
                                                         <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
@@ -145,7 +169,7 @@ function listarBuses() {
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1">Editar</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
                                                         <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
