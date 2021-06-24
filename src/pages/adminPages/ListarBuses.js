@@ -1,10 +1,20 @@
+import React, { useState }  from 'react'
+import ReactDOM from 'react-dom' 
 import SideBar from '../../components/SideBar'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 import { Container, Row, Col, Table, Dropdown } from 'react-bootstrap';
 import '../../css/ListarBuses.css'
 
-function listarBuses() {
-    return (
+class listarBuses extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            buses: [],
+            ruc: "20312736846",};
+    }    
+    render(){
+        return (
         <>
             <SideBar />
             {/* Modal Editar Bus */}
@@ -62,121 +72,34 @@ function listarBuses() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        <td>ASD-568</td>
-                                        <td>555-999-555</td>
-                                        <td>Nissan</td>
-                                        <td>NV200</td>
-                                        <td>José Perez</td>
-                                        <td>Transporte</td>
-                                        <td>
-                                            <div className="text-center">
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
-                                                        Opciones
-                                                    </Dropdown.Toggle>
+                                        {this.state.buses.map((bus,index) => {
+                                            return (
+                                                <tr>
+                                                <td>{bus.bus_placa}</td>
+                                                <td>{bus.bus_serie}</td>
+                                                <td>{bus.bus_marca}</td>
+                                                <td>{bus.bus_modelo}</td>
+                                                <td>{bus.bus_propietario}</td>
+                                                <td>{bus.bus_categoria}</td>
+                                                <td>
+                                                    <div className="text-center">
+                                                        <Dropdown>
+                                                            <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
+                                                                Opciones
+                                                            </Dropdown.Toggle>
 
-                                                    <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
-                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </div>
-                                        
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                        <td>5K2-345</td>
-                                        <td>453-344-676</td>
-                                        <td>Toyota</td>
-                                        <td>Corolla</td>
-                                        <td>Daniel Paredes</td>
-                                        <td>Transporte</td>
-                                        <td>
-                                            <div className="text-center">
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
-                                                        Opciones
-                                                    </Dropdown.Toggle>
+                                                            <Dropdown.Menu>
+                                                                <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
+                                                                <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                    </div>
+                                                
+                                                </td>
+                                                </tr>
 
-                                                    <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
-                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </div>
-                                        
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                        <td>F79-653</td>
-                                        <td>355-769-453</td>
-                                        <td>Toyota</td>
-                                        <td>Etios</td>
-                                        <td>Ernesto Martínez</td>
-                                        <td>Transporte</td>
-                                        <td>
-                                            <div className="text-center">
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
-                                                        Opciones
-                                                    </Dropdown.Toggle>
-
-                                                    <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
-                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </div>
-                                        
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                        <td>E4R-723</td>
-                                        <td>687-778-523</td>
-                                        <td>Mercedes Benz</td>
-                                        <td>Citaro</td>
-                                        <td>Pedro Torres</td>
-                                        <td>Transporte</td>
-                                        <td>
-                                            <div className="text-center">
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
-                                                        Opciones
-                                                    </Dropdown.Toggle>
-
-                                                    <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
-                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </div>
-                                        
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                        <td>ASD-568</td>
-                                        <td>555-999-555</td>
-                                        <td>Hyundai</td>
-                                        <td>County Personal</td>
-                                        <td>Raúl Miranda</td>
-                                        <td>Transporte</td>
-                                        <td>
-                                            <div className="text-center">
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="secondary"  size="sm" id="dropdown-basic">
-                                                        Opciones
-                                                    </Dropdown.Toggle>
-
-                                                    <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
-                                                        <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </div>
-                                        
-                                        </td>
-                                        </tr>
+                                            )
+                                        })}  
                                     </tbody>
                                  </Table>                               
                                   
@@ -187,6 +110,19 @@ function listarBuses() {
             </Container>
         </>
     )
+        
+    }
+
+    componentWillMount() {
+        let ruc = this.state.ruc
+        const url = `http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/ruc/${ruc}`
+        axios.get(url).then(res => {
+            this.setState({buses: res.data});
+            console.log("buses ", this.state.buses)
+        })
+        
+    }
+    
 }
 
 export default listarBuses

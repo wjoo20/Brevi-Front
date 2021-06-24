@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import ReactDOM from 'react-dom' 
 import SideBar from '../../components/SideBar'
+import axios from 'axios';
 import { Container, Row, Col, Form, Button} from 'react-bootstrap';
 import '../../css/CrearBus.css'
 
@@ -14,15 +15,23 @@ class crearBus extends React.Component {
             marca: '',
             modelo: '',
             propietario: '',
-            categoria: ''};
+            categoria: '',
+            rucEmpresa: '20312736846',
+            imagen: ''};
         this.handleChangeSearch = this.handleChangeSearch.bind(this)
         this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.searchBus = this.searchBus.bind(this)
+        this.handleChangeImage = this.handleChangeImage.bind(this)
+        this.saveBus = this.saveBus.bind(this)
     };
     handleChangeSearch(event) {
         this.setState({placa: event.target.value});
     };
-
+    handleChangeImage(event){
+        this.setState({
+            imagen: event.target.value
+        })
+    }
     handleSubmitSearch(event) {
         alert('A name was submitted: ' + this.state.placa);
         event.preventDefault();
@@ -35,6 +44,7 @@ class crearBus extends React.Component {
             method:'GET'
         }).then(response => response.json())
         .then(res => {
+            console.log(res);
             this.setState({
                  placaFound: res.bus_placa,
                  serie: res.bus_serie,
@@ -44,6 +54,44 @@ class crearBus extends React.Component {
                  categoria: res.bus_categoria
              })
         });
+        
+    };
+    
+    saveBus(e){
+        e.preventDefault();
+        const datosBus = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+            bus_placa: this.state.placa,
+            bus_serie: this.state.serie,
+            bus_marca: this.state.marca,
+            bus_modelo: this.state.modelo,
+            bus_propietario: this.state.propietario,
+            bus_categoria: this.state.categoria,
+            bus_estado: false,
+            bus_rucEmpresa: this.state.rucEmpresa })
+        };
+        console.log(datosBus);
+        fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", datosBus).then((response) => {
+        console.log(response)
+        });
+        // let datos = {
+        //     bus_placa: this.state.placa,
+        //     bus_serie: this.state.serie,
+        //     bus_marca: this.state.marca,
+        //     bus_modelo: this.state.modelo,
+        //     bus_propietario: this.state.propietario,
+        //     bus_categoria: this.state.categoria,
+        //     bus_estado: false,
+        //     bus_rucEmpresa: this.state.rucEmpresa,
+        //     bus_imagen: this.state.imagen,            
+        // }
+        // console.log(datos)
+        // axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", datos).then(response => console.log(response) )      
+
     };
     render(){
         return (
@@ -97,8 +145,8 @@ class crearBus extends React.Component {
                                 <h1>Datos del bus</h1>
                             </div>                            
                             <div className="body p-3 mb-3">
-                                <form action="#">
                                     <div className="row mb-3">
+                                        <input type="text" className="form-control" value={20312736846}  hidden/>
                                         <div className="form-group col-md-6">
                                             <label>Nro. Placa</label>
                                             <input type="text" className="form-control" value={this.state.placaFound} readOnly/>
@@ -132,13 +180,12 @@ class crearBus extends React.Component {
                                         <div className="form-group mb-0">
                                             <label>Foto del vehículo</label><br/>
                                             <small>Complete este campo con una imagen referencial del bus.(No es obligatorio)</small>
-                                            <input type="file" className="form-control mt-2"/>
+                                            <input type="file" className="form-control mt-2" onChange={this.handleChangeImage}/>
                                         </div>
                                     </div>
                                     <div class="text-right mt-2 mb-2">
-                                        <button class="btn btn-primary" type="submit">Guardar</button>
+                                        <button class="btn btn-primary" type="submit" onClick={this.saveBus}>Guardar</button>
                                     </div>
-                                </form>
                                 
                             </div>
                         </div>    
