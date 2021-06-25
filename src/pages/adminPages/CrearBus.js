@@ -59,25 +59,46 @@ class crearBus extends React.Component {
     
     saveBus(e){
         e.preventDefault();
-        const datosBus = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 
-            bus_placa: this.state.placa,
-            bus_serie: this.state.serie,
-            bus_marca: this.state.marca,
-            bus_modelo: this.state.modelo,
-            bus_propietario: this.state.propietario,
-            bus_categoria: this.state.categoria,
-            bus_estado: false,
-            bus_rucEmpresa: this.state.rucEmpresa })
-        };
-        console.log(datosBus);
-        fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", datosBus).then((response) => {
-        console.log(response)
-        });
+        fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", {
+            method: 'POST',
+            headers : {
+                'Access-Control-Allow-Origin': 'Access-Control-Request-Headers',
+                'Content-Type': 'application/json',
+                'charset': 'utf-8'},
+            body: JSON.stringify({
+                bus_placa: this.state.placa,
+                bus_serie: this.state.serie,
+                bus_marca: this.state.marca,
+                bus_modelo: this.state.modelo,
+                bus_propietario: this.state.propietario,
+                bus_categoria: this.state.categoria,
+                bus_estado: false,
+                bus_rucEmpresa: this.state.rucEmpresa,
+                bus_imagen: this.state.imagen          
+            }),
+        }).then(response => response.text())
+            .then(data => console.log(data))    
+            .catch(error => console.log("Error detected: " + error))
+        // const datosBus = {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //      mode: 'no-cors',
+        //     body: { 
+        //         bus_placa: this.state.placa,
+        //         bus_serie: this.state.serie,
+        //         bus_marca: this.state.marca,
+        //         bus_modelo: this.state.modelo,
+        //         bus_propietario: this.state.propietario,
+        //         bus_categoria: this.state.categoria,
+        //         bus_estado: false,
+        //         bus_rucEmpresa: this.state.rucEmpresa }
+        // };
+        // console.log(datosBus);
+        // fetch(, datosBus).then((response) => {
+        // console.log(response)
+        // });
         // let datos = {
         //     bus_placa: this.state.placa,
         //     bus_serie: this.state.serie,
