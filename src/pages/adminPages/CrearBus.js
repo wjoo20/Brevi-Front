@@ -19,7 +19,6 @@ class crearBus extends React.Component {
             rucEmpresa: '20312736846',
             imagen: ''};
         this.handleChangeSearch = this.handleChangeSearch.bind(this)
-        this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
         this.searchBus = this.searchBus.bind(this)
         this.handleChangeImage = this.handleChangeImage.bind(this)
         this.saveBus = this.saveBus.bind(this)
@@ -32,10 +31,6 @@ class crearBus extends React.Component {
             imagen: event.target.value
         })
     }
-    handleSubmitSearch(event) {
-        alert('A name was submitted: ' + this.state.placa);
-        event.preventDefault();
-    };
     searchBus(){
         let placa =this.state.placa;
         const url = `https://api-placa-get.herokuapp.com/placa/${placa}`
@@ -113,7 +108,7 @@ class crearBus extends React.Component {
         // console.log(datos)
         // axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", datos).then(response => console.log(response) )      
 
-    };
+    };    
     render(){
         return (
         <>

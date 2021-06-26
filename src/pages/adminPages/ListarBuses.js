@@ -12,7 +12,9 @@ class listarBuses extends React.Component {
         this.state = {
             buses: [],
             ruc: "20312736846",};
-    }    
+        
+        this.deleteBus = this.deleteBus.bind(this)
+    }      
     render(){
         return (
         <>
@@ -89,8 +91,8 @@ class listarBuses extends React.Component {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu>
-                                                                <Dropdown.Item href="#/action-1" data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
-                                                                <Dropdown.Item href="#/action-2">Eliminar</Dropdown.Item>
+                                                                <Dropdown.Item data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
+                                                                <Dropdown.Item onClick={() => this.deleteBus(bus.bus_placa)} >Eliminar</Dropdown.Item>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </div>
@@ -119,9 +121,18 @@ class listarBuses extends React.Component {
         axios.get(url).then(res => {
             this.setState({buses: res.data});
             console.log("buses ", this.state.buses)
-        })
-        
+        })        
     }
+
+    deleteBus(placa){
+        let rpta = window.confirm('¿Seguro que desea eliminar este registro?');
+        if (rpta) {
+            axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/"+placa+"/")
+            .then(res => {
+                this.componentWillMount();
+            })
+        }
+    }  
     
 }
 
