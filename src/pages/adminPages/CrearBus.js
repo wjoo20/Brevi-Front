@@ -17,7 +17,7 @@ class crearBus extends React.Component {
             propietario: '',
             categoria: '',
             rucEmpresa: '20312736846',
-            imagen: ''};
+            imagen: null};
         this.handleChangeSearch = this.handleChangeSearch.bind(this)
         this.searchBus = this.searchBus.bind(this)
         this.handleChangeImage = this.handleChangeImage.bind(this)
@@ -28,8 +28,8 @@ class crearBus extends React.Component {
     };
     handleChangeImage(event){
         this.setState({
-            imagen: event.target.value
-        })
+            imagen: event.target.files[0]
+        });
     }
     searchBus(){
         let placa =this.state.placa;
@@ -52,61 +52,30 @@ class crearBus extends React.Component {
         
     };
     
-    saveBus(e){
-        e.preventDefault();
-        fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", {
-            method: 'POST',
-            headers : {
-                'Access-Control-Allow-Origin': 'Access-Control-Request-Headers',
-                'Content-Type': 'application/json',
-                'charset': 'utf-8'},
-            body: JSON.stringify({
-                bus_placa: this.state.placa,
-                bus_serie: this.state.serie,
-                bus_marca: this.state.marca,
-                bus_modelo: this.state.modelo,
-                bus_propietario: this.state.propietario,
-                bus_categoria: this.state.categoria,
-                bus_estado: false,
-                bus_rucEmpresa: this.state.rucEmpresa,
-                bus_imagen: this.state.imagen          
-            }),
-        }).then(response => response.text())
-            .then(data => console.log(data))    
-            .catch(error => console.log("Error detected: " + error))
-        // const datosBus = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //      mode: 'no-cors',
-        //     body: { 
-        //         bus_placa: this.state.placa,
-        //         bus_serie: this.state.serie,
-        //         bus_marca: this.state.marca,
-        //         bus_modelo: this.state.modelo,
-        //         bus_propietario: this.state.propietario,
-        //         bus_categoria: this.state.categoria,
-        //         bus_estado: false,
-        //         bus_rucEmpresa: this.state.rucEmpresa }
-        // };
-        // console.log(datosBus);
-        // fetch(, datosBus).then((response) => {
-        // console.log(response)
-        // });
-        // let datos = {
-        //     bus_placa: this.state.placa,
-        //     bus_serie: this.state.serie,
-        //     bus_marca: this.state.marca,
-        //     bus_modelo: this.state.modelo,
-        //     bus_propietario: this.state.propietario,
-        //     bus_categoria: this.state.categoria,
-        //     bus_estado: false,
-        //     bus_rucEmpresa: this.state.rucEmpresa,
-        //     bus_imagen: this.state.imagen,            
-        // }
-        // console.log(datos)
-        // axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", datos).then(response => console.log(response) )      
+    
+    saveBus(event){
+        var formdata = new FormData();
+        formdata.append("bus_placa", "placa4");
+        formdata.append("bus_serie", "asdasd");
+        formdata.append("bus_marca", "sadsadsad");
+        formdata.append("bus_modelo", "adssadsad");
+        formdata.append("bus_propietario", "me");
+        formdata.append("bus_categoria", "dsfdsfd");
+        formdata.append("bus_estado", "false");
+        formdata.append("bus_rucEmpresa", "20312736846");
+        formdata.append("bus_imagen", this.state.imagen, this.state.imagen.name);
+
+        var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+        };
+
+        fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+        
 
     };    
     render(){
@@ -213,6 +182,8 @@ class crearBus extends React.Component {
     )
 
     }
+
+    
     
     
     
