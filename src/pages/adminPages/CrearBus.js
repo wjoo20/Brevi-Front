@@ -55,14 +55,14 @@ class crearBus extends React.Component {
     
     saveBus(event){
         var formdata = new FormData();
-        formdata.append("bus_placa", "placa4");
-        formdata.append("bus_serie", "asdasd");
-        formdata.append("bus_marca", "sadsadsad");
-        formdata.append("bus_modelo", "adssadsad");
-        formdata.append("bus_propietario", "me");
-        formdata.append("bus_categoria", "dsfdsfd");
-        formdata.append("bus_estado", "false");
-        formdata.append("bus_rucEmpresa", "20312736846");
+        formdata.append("bus_placa", this.state.placa);
+        formdata.append("bus_serie", this.state.serie);
+        formdata.append("bus_marca", this.state.marca);
+        formdata.append("bus_modelo", this.state.modelo);
+        formdata.append("bus_propietario", this.state.propietario);
+        formdata.append("bus_categoria", this.state.categoria);
+        formdata.append("bus_estado", false);
+        formdata.append("bus_rucEmpresa", this.state.rucEmpresa);
         formdata.append("bus_imagen", this.state.imagen, this.state.imagen.name);
 
         var requestOptions = {
