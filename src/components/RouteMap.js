@@ -7,11 +7,8 @@ import RouteInfo from './RouteInfo'
 const RouteMap = ({eventData, center, zoom}) => {
     const [locationInfo, setLocation] = useState(null)
 
-    const markers = eventData.map(ev =>{
-        if(ev.categories[0].id === 8){
-            return <RouteMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} onClick={() => setLocation({ id: ev.id, title: ev.title})} />
-        }
-        return null
+    const markers = eventData && eventData.map(ev =>{
+        return <RouteMarker lat={ev.cr_lat} lng={ev.cr_lon} onClick={() => setLocation({ id: ev.id, tiempo: ev.cr_tiempo, ruta: ev.cr_idRuta})} />        
     })
     return (
         <div className="map">

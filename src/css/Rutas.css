@@ -24,7 +24,7 @@
     border-color: #FE870E !important;
     color: #fff;
     margin-right: 10px;
-    font-size: 0.8rem;
+    font-size: 0.8rem !important;
 }
 
 .pointActions:hover {
@@ -32,7 +32,22 @@
     border-color: #FE870E !important;
     color: #fff;
     margin-right: 10px;
-    font-size: 0.8rem;
+    font-size: 0.8rem !important;
+}
+
+.routeActions {
+    background-color: transparent !important;
+    border-radius: 20px;
+    border-color: #737476 !important;
+    color: #7E7F81 !important;
+    font-size: 0.8rem !important;
+}
+
+.routeActions:hover {
+    background-color: #737476 !important;
+    border-color: #737476 !important;
+    color: #fff !important;
+    font-size: 0.8rem !important;
 }
 
 .modal label {
@@ -121,4 +136,17 @@
 
 .location-info li {
     padding: 5px 0;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.accordionTitle {
+    font-family: 'Montserrat';
+    font-size: 1rem;
 }

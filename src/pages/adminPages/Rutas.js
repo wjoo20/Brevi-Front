@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import React from 'react'
 import RouteMap from '../../components/RouteMap'
-import { Container, Row, Col, Button} from 'react-bootstrap';
+import { Container, Row, Col, Button, Accordion, Card, Dropdown, Table} from 'react-bootstrap';
 import SideBar from '../../components/SideBar'
 import credentials from '../../credentials/credentials.js'
 import Loader from '../../components/Loader'
+import axios from 'axios';
 import '../../css/Rutas.css'
 
 
@@ -12,20 +13,40 @@ const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credential
 
 function Rutas() {
     const [eventData, setEventData] = useState([])
+    const [routes, setRoutes] = useState([])
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        const fetchEvents = async () => {
-            setLoading(true)
-            const res = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events')
-            const { events } = await res.json()
-
-            setEventData(events)
-            setLoading(false)
-        }
+    useEffect(() => {       
 
         fetchEvents()
+        getRoutes()
     }, [])
+
+    const fetchEvents = async () => {
+        axios.get("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/")
+            .then(res =>{
+                setEventData(res.data)
+                setLoading(false)
+            }).catch(err => {
+                console.log(err)
+            })
+            // setLoading(true)
+            // const res = await fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/")
+            // const { events } = await res.json()
+
+            // setEventData(events)
+            // console.log(eventData)
+            // setLoading(false)
+    }
+
+    const getRoutes = async() => {
+        axios.get("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas")
+            .then(res =>{
+                setRoutes(res.data)
+            }).catch(err => {
+                console.log(err)
+            })
+    }
 
     return (
         <div>
@@ -121,10 +142,55 @@ function Rutas() {
                                     <a href="#" className="btn btn-primary" data-toggle="modal" data-target="#nuevaRuta">Nueva Ruta</a>
                                 </div>
                                                                 
-                            </div>                            
-                            <div className="body mt-3 p-3 mb-3 text-center">
-                                {!loading ? <RouteMap eventData={eventData}/> : <Loader /> }   
-                            </div>
+                            </div>  
+                            <div className="body mt-3 p-3 mb-3">  
+                                <Accordion defaultActiveKey="1">
+                                    <Card>
+                                        <Accordion.Toggle as={Card.Header} eventKey="0" className="accordionTitle">
+                                        Tabla de rutas
+                                        </Accordion.Toggle>
+                                        <Accordion.Collapse eventKey="0">
+                                        <Card.Body>
+                                            <Table bordered responsive>
+                                                <thead>
+                                                    <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Inicio</th>
+                                                    <th>RUC de Empresa</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {routes.map(route => (
+                                                        <tr>
+                                                            <td>{route.ruta_nombre}</td>
+                                                            <td>{route.ruta_inicio}</td>
+                                                            <td>{route.ruta_rucEmpresa}</td>
+                                                            <td>
+                                                                <a className="btn btn-primary routeActions"><i className="fa fa-edit"/> Editar</a>            
+                                                            </td>
+                                                            <td>
+                                                                <a className="btn btn-primary routeActions"><i className="fa fa-trash"/> Eliminar</a>
+                                                            </td>
+                                                        </tr> 
+                                                    ))}
+                                                    
+                                                </tbody>
+                                            </Table>    
+                                        </Card.Body>
+                                        </Accordion.Collapse>
+                                    </Card>
+                                    <Card>
+                                        <Accordion.Toggle as={Card.Header} eventKey="1" >
+                                        Mapa
+                                        </Accordion.Toggle>
+                                        <Accordion.Collapse eventKey="1">
+                                        <Card.Body>{!loading ? <RouteMap eventData={eventData}/> : <Loader /> } </Card.Body>
+                                        </Accordion.Collapse>
+                                    </Card>
+                                </Accordion>    
+                            </div>   
                         </div>    
                     </Col>
                 </Row>
