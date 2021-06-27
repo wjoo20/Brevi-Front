@@ -20,8 +20,8 @@
 }
 
 .pointActions {
-    background-color: #FE870E !important;
-    border-color: #FE870E !important;
+    background-color: transparent !important;
+    border-color: #fff !important;
     color: #fff;
     margin-right: 10px;
     font-size: 0.8rem !important;
@@ -125,6 +125,7 @@
     padding: 20px;
     background-color: rgba(79, 77, 184, 0.7);
     color: white;
+    font-family: 'Montserrat';
     border-radius: 10px;
     font-size: 0.9rem;
 }

@@ -15,14 +15,19 @@ function Rutas() {
     const [eventData, setEventData] = useState([])
     const [routes, setRoutes] = useState([])
     const [loading, setLoading] = useState(false)
+    const [valuesRoute, setValuesRoute] = useState({
+        ruta_nombre: '',
+        ruta_inicio: "Avenida Arequipa 123",
+        ruta_rucEmpresa: '20312736846',
+    });
 
     useEffect(() => {       
-
-        fetchEvents()
+        getPointControl()
         getRoutes()
     }, [])
 
-    const fetchEvents = async () => {
+    const getPointControl = async () => {
+        setLoading(true)
         axios.get("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/")
             .then(res =>{
                 setEventData(res.data)
@@ -30,23 +35,30 @@ function Rutas() {
             }).catch(err => {
                 console.log(err)
             })
-            // setLoading(true)
-            // const res = await fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/")
-            // const { events } = await res.json()
-
-            // setEventData(events)
-            // console.log(eventData)
-            // setLoading(false)
     }
 
     const getRoutes = async() => {
-        axios.get("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas")
+        axios.get("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/ruc/20312736846/")
             .then(res =>{
                 setRoutes(res.data)
             }).catch(err => {
                 console.log(err)
             })
     }
+
+    const handleChangeRouteName = name => e => {
+        setValuesRoute({ ...valuesRoute, [name]: e.target.value });
+        console.log(valuesRoute.nombre)
+    };
+
+    const saveRoute = async (e) => {
+        e.preventDefault();
+        const { ruta_nombre, ruta_inicio, ruta_rucEmpresa} = valuesRoute;
+        const route = {ruta_nombre, ruta_inicio, ruta_rucEmpresa};
+        console.log(route);
+
+        await axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/", route);        
+    };
 
     return (
         <div>
@@ -62,16 +74,16 @@ function Rutas() {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form className="needs-validation" novalidate="">
-                                <div className="form-group">
-                                    <label>Nombre de ruta</label>
-                                    <input type="text" className="form-control" required=""/>
-                                    <div className="invalid-feedback">
-                                        Ingrese un número de placa correcto.
-                                    </div>
+                            <div className="form-group">
+                                <label>Nombre de ruta</label>
+                                <input onChange={handleChangeRouteName('ruta_nombre')} type="text" className="form-control" required/>
+                                <input value={valuesRoute.inicio} onChange={handleChangeRouteName('ruta_inicio')} type="text" className="form-control" required hidden/>
+                                <input value={valuesRoute.rucEmpresa} onChange={handleChangeRouteName('ruta_rucEmpresa')} type="text" className="form-control" required hidden/>
+                                <div className="invalid-feedback">
+                                    Ingrese un número de placa correcto.
                                 </div>
-                                <input className="btn btn-primary save" type="submit" value="Guardar"/>
-                            </form>
+                            </div>
+                            <button onClick={saveRoute} className="btn btn-primary save" type="submit">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -151,7 +163,7 @@ function Rutas() {
                                         </Accordion.Toggle>
                                         <Accordion.Collapse eventKey="0">
                                         <Card.Body>
-                                            <Table bordered responsive>
+                                            <Table bordered responsive className="text-center">
                                                 <thead>
                                                     <tr>
                                                     <th>Nombre</th>
