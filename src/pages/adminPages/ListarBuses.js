@@ -64,8 +64,9 @@ class listarBuses extends React.Component {
                  propietario: res.bus_propietario,
                  categoria: res.bus_categoria,
                  rucEmpresa: '20312736846',
-                 imagenFound: res.bus_imagen
+                 imagenFound: "http://3.208.58.70/"+res.bus_imagen
              })
+            console.log(this.state.imagenFound)
         });
     }
 
@@ -117,7 +118,9 @@ class listarBuses extends React.Component {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Imagen: {this.state.imagenFound}</p>
+                            <div className="text-center">
+                                <img id="referentImage" src={this.state.imagenFound} alt="ReferentImage" />
+                            </div>
                             <div className="form-group mb-0">
                                 <label>Foto del vehículo</label><br/>
                                 <input type="file" className="form-control mt-2" onChange={this.handleChangeImage}/>

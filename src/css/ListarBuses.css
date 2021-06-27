@@ -97,5 +97,10 @@
     font-size: 0.9rem;
 }
 
+#referentImage {
+    width: 400px;
+    height: auto;
+}
+
 
 /* Estilos para vista Crear Bus */
