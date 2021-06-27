@@ -10,11 +10,98 @@ class listarBuses extends React.Component {
     constructor(){
         super();
         this.state = {
+            placa: '',
+            serie: '',
+            marca: '',
+            modelo: '',
+            propietario: '',
+            categoria: '',
+            rucEmpresa: '20312736846',
+            imagen: null,
+            imagenFound: null};
+        this.state = {
             buses: [],
             ruc: "20312736846",};
         
         this.deleteBus = this.deleteBus.bind(this)
-    }      
+        this.searchBus = this.searchBus.bind(this)
+        this.handleChangeImage = this.handleChangeImage.bind(this)
+        this.updateBus = this.updateBus.bind(this)
+    }    
+
+    componentWillMount() {
+        let ruc = this.state.ruc
+        const url = `http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/ruc/${ruc}`
+        axios.get(url).then(res => {
+            this.setState({buses: res.data});
+            console.log("buses ", this.state.buses)
+        })        
+    }
+
+    deleteBus(placa){
+        let rpta = window.confirm('¿Seguro que desea eliminar este registro?');
+        if (rpta) {
+            axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/"+placa+"/")
+            .then(res => {
+                this.componentWillMount();
+            })
+        }
+    }  
+
+
+    searchBus(placa){
+        const url = `http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/${placa}/`
+        fetch(url,{
+            method:'GET'
+        }).then(response => response.json())
+        .then(res => {
+            console.log(res);
+            this.setState({
+                 placa: res.bus_placa,
+                 serie: res.bus_serie,
+                 marca: res.bus_marca,
+                 modelo: res.bus_modelo,
+                 propietario: res.bus_propietario,
+                 categoria: res.bus_categoria,
+                 rucEmpresa: '20312736846',
+                 imagenFound: res.bus_imagen
+             })
+        });
+    }
+
+    handleChangeImage(event){
+        // console.log(event.target.files[0])
+        this.setState({
+            imagen: event.target.files[0]
+        });
+    }
+
+    async updateBus(event){
+        var formdata = new FormData();
+        var placa = this.state.placa;
+        formdata.append("bus_placa", this.state.placa);
+        formdata.append("bus_serie", this.state.serie);
+        formdata.append("bus_marca", this.state.marca);
+        formdata.append("bus_modelo", this.state.modelo);
+        formdata.append("bus_propietario", this.state.propietario);
+        formdata.append("bus_categoria", this.state.categoria);
+        formdata.append("bus_estado", false);
+        formdata.append("bus_rucEmpresa", this.state.rucEmpresa);
+        formdata.append("bus_imagen", this.state.imagen, this.state.imagen.name);
+
+        var requestOptions = {
+        method: 'PUT',
+        body: formdata,
+        redirect: 'follow'
+        };
+        console.log(this.state.placa)
+        fetch(`http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/${placa}/`, requestOptions)
+        .then(response => response.text())
+        .then(result => this.componentWillMount())
+        .catch(error => console.log('error', error));
+        
+
+    };    
     render(){
         return (
         <>
@@ -30,13 +117,12 @@ class listarBuses extends React.Component {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form className="needs-validation" novalidate="">
-                                <div className="form-group mb-0">
-                                    <label>Foto del vehículo</label><br/>
-                                    <input type="file" className="form-control mt-2"/>
-                                 </div>
-                                <input className="btn btn-primary save" type="submit" value="Guardar"/>
-                            </form>
+                            <p>Imagen: {this.state.imagenFound}</p>
+                            <div className="form-group mb-0">
+                                <label>Foto del vehículo</label><br/>
+                                <input type="file" className="form-control mt-2" onChange={this.handleChangeImage}/>
+                            </div>
+                            <button id="update" class="btn btn-primary" type="submit" onClick={this.updateBus}>Guardar Cambios</button>
                         </div>
                     </div>
                 </div>
@@ -91,7 +177,7 @@ class listarBuses extends React.Component {
                                                             </Dropdown.Toggle>
 
                                                             <Dropdown.Menu>
-                                                                <Dropdown.Item data-toggle="modal" data-target="#editarBus">Editar</Dropdown.Item>
+                                                                <Dropdown.Item data-toggle="modal" data-target="#editarBus" onClick={() => this.searchBus(bus.bus_placa)}>Editar</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => this.deleteBus(bus.bus_placa)} >Eliminar</Dropdown.Item>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
@@ -115,24 +201,8 @@ class listarBuses extends React.Component {
         
     }
 
-    componentWillMount() {
-        let ruc = this.state.ruc
-        const url = `http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/ruc/${ruc}`
-        axios.get(url).then(res => {
-            this.setState({buses: res.data});
-            console.log("buses ", this.state.buses)
-        })        
-    }
-
-    deleteBus(placa){
-        let rpta = window.confirm('¿Seguro que desea eliminar este registro?');
-        if (rpta) {
-            axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/"+placa+"/")
-            .then(res => {
-                this.componentWillMount();
-            })
-        }
-    }  
+    
+    
     
 }
 

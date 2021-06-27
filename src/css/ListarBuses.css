@@ -84,5 +84,18 @@
     font-size: 0.8rem;
 }
 
+#update {
+    margin-top: 20px;
+    background-color: #5856c9 !important;
+    border-color: #5856c9 !important;
+    font-size: 0.9rem;
+}
+
+#update:hover {
+    background-color: #4F4DB8 !important;
+    border-color: #4F4DB8 !important;
+    font-size: 0.9rem;
+}
+
 
 /* Estilos para vista Crear Bus */
