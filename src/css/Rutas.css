@@ -129,8 +129,13 @@
 }
 
 .location-icon {
-    font-size: 1.5rem;
-    color: #5856c9;
+    font-size: 2rem;
+    color: #FE870E;
+}
+
+.location-icon:hover {
+    font-size: 2.5rem;
+    color: #ec7905;
 }
 
 .location-info {
@@ -140,7 +145,7 @@
     width: 300px;
     min-height: 150px;
     padding: 20px;
-    background-color: rgba(79, 77, 184, 0.7);
+    background-color: rgba(79, 77, 184, 0.8);
     color: white;
     font-family: 'Montserrat';
     border-radius: 10px;

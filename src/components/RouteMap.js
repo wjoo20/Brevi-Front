@@ -8,7 +8,7 @@ const RouteMap = ({eventData, center, zoom}) => {
     const [locationInfo, setLocation] = useState(null)
 
     const markers = eventData && eventData.map(ev =>{
-        return <RouteMarker lat={ev.cr_lat} lng={ev.cr_lon} onClick={() => setLocation({ orden: ev.cr_orden, tiempo: ev.cr_tiempo, ruta: ev.cr_idRuta})} />        
+        return <RouteMarker lat={ev.cr_lat} lng={ev.cr_lon} onClick={() => setLocation({ orden: ev.cr_orden, tiempo: ev.cr_tiempo, ruta: ev.cr_idRuta, id: ev.id})} />        
     })
     return (
         <div className="map">
@@ -27,10 +27,10 @@ const RouteMap = ({eventData, center, zoom}) => {
 
 RouteMap.defaultProps = {
     center: {
-        lat: 42.3265,
-        lng: -122.8756
+        lat: -16.39889,
+        lng: -71.535
     },
-    zoom: 5
+    zoom: 14
 }
 
 export default RouteMap

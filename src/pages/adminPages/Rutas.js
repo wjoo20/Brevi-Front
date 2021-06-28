@@ -99,6 +99,18 @@ function Rutas() {
                     console.log(err)
             })
     };
+
+    const deleteControlPoint = (id) => {
+        let rpta = window.confirm('¿Seguro que desea eliminar este registro?');
+        if (rpta) {
+            axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/"+id+"/")
+            .then(res => {
+                console.log(res)
+                getPointControl()
+                getRoutes()
+            })
+        }        
+    }
     return (
         <div>
             <SideBar/>
