@@ -36,16 +36,33 @@
 }
 
 .routeActions {
-    background-color: transparent !important;
+    background-color: #5856c9 !important;
     border-radius: 20px;
-    border-color: #737476 !important;
-    color: #7E7F81 !important;
+    border-color: #5856c9 !important;
+    border-radius: 20px !important;
+    color: #fff !important;
     font-size: 0.8rem !important;
 }
 
 .routeActions:hover {
-    background-color: #737476 !important;
-    border-color: #737476 !important;
+    background-color: #4746ac !important;
+    border-color: #4746ac !important;
+    color: #fff !important;
+    font-size: 0.8rem !important;
+}
+
+.routeActions2 {
+    background-color: transparent !important;
+    border-radius: 20px !important;
+    border-color: #7E7F81 !important;
+    border-radius: 20px;
+    color: #7E7F81 !important;
+    font-size: 0.8rem !important;
+}
+
+.routeActions2:hover {
+    background-color: #7E7F81 !important;
+    border-color: #7E7F81 !important;
     color: #fff !important;
     font-size: 0.8rem !important;
 }

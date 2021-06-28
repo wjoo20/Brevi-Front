@@ -48,7 +48,6 @@ function Rutas() {
 
     const handleChangeRouteName = name => e => {
         setValuesRoute({ ...valuesRoute, [name]: e.target.value });
-        console.log(valuesRoute.nombre)
     };
 
     const saveRoute = async (e) => {
@@ -56,10 +55,22 @@ function Rutas() {
         const { ruta_nombre, ruta_inicio, ruta_rucEmpresa} = valuesRoute;
         const route = {ruta_nombre, ruta_inicio, ruta_rucEmpresa};
         console.log(route);
-
         await axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/", route);        
+        getRoutes()
+        getPointControl()
     };
 
+    const deleteRoute = (id) => {
+        let rpta = window.confirm('¿Seguro que desea eliminar este registro?');
+        if (rpta) {
+            axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/"+id+"/")
+            .then(res => {
+                console.log(res)
+                getPointControl()
+                getRoutes()
+            })
+        }        
+    }
     return (
         <div>
             <SideBar/>
@@ -180,10 +191,10 @@ function Rutas() {
                                                             <td>{route.ruta_inicio}</td>
                                                             <td>{route.ruta_rucEmpresa}</td>
                                                             <td>
-                                                                <a className="btn btn-primary routeActions"><i className="fa fa-edit"/> Editar</a>            
+                                                                <a className="btn btn-primary routeActions2"><i className="fa fa-edit"/> Editar</a>            
                                                             </td>
                                                             <td>
-                                                                <a className="btn btn-primary routeActions"><i className="fa fa-trash"/> Eliminar</a>
+                                                                <a className="btn btn-primary routeActions" onClick={() => deleteRoute(route.id)}><i className="fa fa-trash"/> Eliminar</a>
                                                             </td>
                                                         </tr> 
                                                     ))}
