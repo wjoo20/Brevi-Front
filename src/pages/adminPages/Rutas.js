@@ -16,6 +16,7 @@ function Rutas() {
     const [routes, setRoutes] = useState([])
     const [loading, setLoading] = useState(false)
     const [valuesRoute, setValuesRoute] = useState({
+        id: null,
         ruta_nombre: '',
         ruta_inicio: "Avenida Arequipa 123",
         ruta_rucEmpresa: '20312736846',
@@ -60,6 +61,19 @@ function Rutas() {
         getPointControl()
     };
 
+    const getRoute = (id) => {
+        axios.get("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/"+id+"/")
+            .then(res =>{
+                setValuesRoute({
+                    id: res.data.id,
+                    ruta_nombre: res.data.ruta_nombre,
+                    ruta_inicio: res.data.ruta_inicio,
+                    ruta_rucEmpresa: res.data.ruta_rucEmpresa})
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
     const deleteRoute = (id) => {
         let rpta = window.confirm('¿Seguro que desea eliminar este registro?');
         if (rpta) {
@@ -71,6 +85,20 @@ function Rutas() {
             })
         }        
     }
+
+    const updateRoute = async (idRoute) => {
+        const { id, ruta_nombre, ruta_inicio, ruta_rucEmpresa} = valuesRoute;
+        const route = {id, ruta_nombre, ruta_inicio, ruta_rucEmpresa};
+        console.log(route);
+        await axios.put("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/"+idRoute+"/", route)
+            .then(res => {
+                    console.log(res)
+                    getPointControl()
+                    getRoutes()
+            }).catch(err => {
+                    console.log(err)
+            })
+    };
     return (
         <div>
             <SideBar/>
@@ -95,6 +123,33 @@ function Rutas() {
                                 </div>
                             </div>
                             <button onClick={saveRoute} className="btn btn-primary save" type="submit">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            {/* End Modal Ruta */}
+
+            {/* Modal Update Ruta */}
+            <div class="modal fade"  id="editarRuta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Editar Ruta</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div className="form-group">
+                                <label>Nombre de ruta</label>
+                                <input value={valuesRoute.ruta_nombre} onChange={handleChangeRouteName('ruta_nombre')} type="text" className="form-control" required/>
+                                <input value={valuesRoute.ruta_inicio} onChange={handleChangeRouteName('ruta_inicio')} type="text" className="form-control" required hidden/>
+                                <input value={valuesRoute.ruta_rucEmpresa} onChange={handleChangeRouteName('ruta_rucEmpresa')} type="text" className="form-control" required hidden/>
+                                <div className="invalid-feedback">
+                                    Ingrese un número de placa correcto.
+                                </div>
+                            </div>
+                            <button onClick={() => updateRoute(valuesRoute.id)}className="btn btn-primary save" type="submit">Guardar Cambios</button>
                         </div>
                     </div>
                 </div>
@@ -191,7 +246,7 @@ function Rutas() {
                                                             <td>{route.ruta_inicio}</td>
                                                             <td>{route.ruta_rucEmpresa}</td>
                                                             <td>
-                                                                <a className="btn btn-primary routeActions2"><i className="fa fa-edit"/> Editar</a>            
+                                                                <a className="btn btn-primary routeActions2" data-toggle="modal" data-target="#editarRuta" onClick={() => getRoute(route.id)}><i className="fa fa-edit"/> Editar</a>            
                                                             </td>
                                                             <td>
                                                                 <a className="btn btn-primary routeActions" onClick={() => deleteRoute(route.id)}><i className="fa fa-trash"/> Eliminar</a>
