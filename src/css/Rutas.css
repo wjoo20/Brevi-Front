@@ -23,6 +23,7 @@
     background-color: transparent !important;
     border-color: #fff !important;
     color: #fff;
+    border-radius: 20px !important;
     margin-right: 10px;
     font-size: 0.8rem !important;
 }
@@ -129,13 +130,13 @@
 }
 
 .location-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #FE870E;
 }
 
 .location-icon:hover {
-    font-size: 2.5rem;
-    color: #ec7905;
+    font-size: 3rem;
+    color: #f87d02;
 }
 
 .location-info {

@@ -73,7 +73,7 @@ class crearBus extends React.Component {
 
         fetch("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => console.log(result) , alert("Bus guardado con éxito"))
         .catch(error => console.log('error', error));
         
 

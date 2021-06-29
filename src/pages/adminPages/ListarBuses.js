@@ -43,6 +43,7 @@ class listarBuses extends React.Component {
         if (rpta) {
             axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/"+placa+"/")
             .then(res => {
+                alert("Bus eliminado con éxito")
                 this.componentWillMount();
             })
         }
@@ -98,7 +99,7 @@ class listarBuses extends React.Component {
         console.log(this.state.placa)
         fetch(`http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/buses/${placa}/`, requestOptions)
         .then(response => response.text())
-        .then(result => this.componentWillMount())
+        .then(result => window.location.reload(), alert("Bus actualizado con éxito"))
         .catch(error => console.log('error', error));
         
 

@@ -8,7 +8,7 @@ import { SidebarData } from '../data/SideBarData';
 import '../css/SideBar.css';
 import { IconContext } from 'react-icons';
 import { Container } from 'react-bootstrap';
-import user from '../img/avatar/image2.jpg'
+import user from '../img/avatar/avatar-5.png'
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import React from 'react'
 import RouteMap from '../../components/RouteMap'
+import PointMap from '../../components/PointMap'
 import { Container, Row, Col, Button, Accordion, Card, Dropdown, Table} from 'react-bootstrap';
 import SideBar from '../../components/SideBar'
 import credentials from '../../credentials/credentials.js'
@@ -21,6 +22,15 @@ function Rutas() {
         ruta_inicio: "Avenida Arequipa 123",
         ruta_rucEmpresa: '20312736846',
     });
+
+    const [valuesPoint, setValuesPoint] = useState({
+        id: null,
+        cr_orden: null,
+        cr_lat: -16.352292,
+        cr_lon: -71.566513,
+        cr_tiempo: null,
+        cr_idRuta: null,
+    })
 
     useEffect(() => {       
         getPointControl()
@@ -51,6 +61,10 @@ function Rutas() {
         setValuesRoute({ ...valuesRoute, [name]: e.target.value });
     };
 
+    const handleChangePointOrder = name => e => {
+        setValuesPoint({ ...valuesPoint, [name]: e.target.value });
+    };
+
     const saveRoute = async (e) => {
         e.preventDefault();
         const { ruta_nombre, ruta_inicio, ruta_rucEmpresa} = valuesRoute;
@@ -59,6 +73,18 @@ function Rutas() {
         await axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/", route);        
         getRoutes()
         getPointControl()
+    };
+
+    const savePointControl = async (e) => {
+        e.preventDefault();
+        const { cr_orden, cr_lat, cr_lon, cr_tiempo, cr_idRuta} = valuesPoint;
+        const point = {cr_orden, cr_lat, cr_lon, cr_tiempo, cr_idRuta};
+        console.log(point);
+        await axios.post("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/", point);        
+        alert("Punto de control guardado con éxito")
+        getRoutes()
+        getPointControl()
+
     };
 
     const getRoute = (id) => {
@@ -80,6 +106,7 @@ function Rutas() {
             axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/"+id+"/")
             .then(res => {
                 console.log(res)
+                alert("Ruta eliminado con éxito")
                 getPointControl()
                 getRoutes()
             })
@@ -93,6 +120,7 @@ function Rutas() {
         await axios.put("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/rutas/"+idRoute+"/", route)
             .then(res => {
                     console.log(res)
+                    alert("Ruta actualizada con éxito")
                     getPointControl()
                     getRoutes()
             }).catch(err => {
@@ -106,6 +134,7 @@ function Rutas() {
             axios.delete("http://3.208.58.70/usuario/b'gAAAAABgz3FA4eAx6QbcppWtmdJwPrq1wRXoQB8uatdrly9CYgtiFOcelRXNSY_vY3AfkMgKlMfYEv4k1HAuiFMZcJmC02F_TQ=='/controlRuta/"+id+"/")
             .then(res => {
                 console.log(res)
+                alert("Punto de control eliminado con éxito")
                 getPointControl()
                 getRoutes()
             })
@@ -182,31 +211,38 @@ function Rutas() {
                         <div class="modal-body">
                             <form className="needs-validation" novalidate="">
                                 <div className="form-group">
-                                    <select className="form-control" name="ruta">
-                                        <option>Seleccione la ruta a configurar</option>
-                                        <option>Ruta 1</option>
-                                        <option>Ruta 2</option>
-                                        <option>Ruta 3</option>
-                                        <option>Ruta 4</option>
+                                    <label>Seleccione la ruta a configurar</label>
+                                    <select className="form-control" name="ruta" onChange={handleChangePointOrder('cr_idRuta')}>
+                                        {routes.map(route => (
+                                            <option value={route.id}>{route.ruta_nombre}</option>
+                                        ))}                                        
                                     </select>
                                 </div>
                                 <hr/>
                                 <div className="form-group">
                                     <label>Número de orden</label>
-                                    <input type="text" className="form-control" required=""/>
-                                    <div className="invalid-feedback">
-                                        Ingrese un número de orden correcto.
-                                    </div>
+                                    <input onChange={handleChangePointOrder('cr_orden')} type="number" className="form-control" required=""/>
                                 </div>
                                 <div className="form-group">
                                     <label>Tiempo de paso (minutos)</label>
-                                    <input type="text" className="form-control" required=""/>
-                                    <div className="invalid-feedback">
-                                        Ingrese un tiempo de paso exacto desde el anterior punto de control o salida.
-                                    </div>
+                                    <input onChange={handleChangePointOrder('cr_tiempo')}  type="number" className="form-control" required=""/>
+                                    <input type="number" className="form-control" required="" hidden/>
+                                    <input type="number" className="form-control" required="" hidden/>
                                 </div>
-                                <input className="btn btn-primary save" type="submit" value="Guardar"/>
-                                <button className="btn btn-outline-secondary add">Guardar y seguir agregando</button>
+                                <div className="form-group">
+                                    <label className="mb-2">Ubicación</label>
+                                    <PointMap
+                                        // google={google}
+                                        center={{lat: -16.373574, lng: -71.559585}}
+                                        height='280px'
+                                        zoom={12}
+                                    /> 
+                                </div> 
+                                <div className="mt-5">
+                                    <button onClick={savePointControl} className="btn btn-primary save" type="submit">Guardar</button>
+                                    <button className="btn btn-outline-secondary add">Guardar y seguir agregando</button>
+                                </div>                               
+                                
                             </form>
                         </div>
                     </div>

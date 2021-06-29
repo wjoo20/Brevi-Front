@@ -15,7 +15,7 @@ const RouteInfo = ({ info }) => {
     }
 
     return (
-        <div className="location-info">
+        <div className="location-info text-center">
             <h4>Punto de Control</h4>
             <ul>
                 <li>Ruta: <strong>{info.ruta}</strong> </li>

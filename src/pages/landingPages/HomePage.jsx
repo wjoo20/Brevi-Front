@@ -15,7 +15,7 @@ export default function HomePage() {
                             </div>
                         </Col>
                         <Col lg="5" className="pt-5 my-auto">
-                            <img src="https://i.ibb.co/4S50mnc/app.png" className="img-fluid" alt="" />
+                            <img src="https://res.cloudinary.com/dyfo5owv8/image/upload/v1624955331/avatar/breviMovil_zygl4x.png" className="img-fluid" alt="" />
                         </Col>
                     </Row>
                 </Container>

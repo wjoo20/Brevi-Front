@@ -54,14 +54,7 @@ function LoginPage() {
                             placeholder="Ingrese su contraseña" />
                     </div>
                     <input type="submit" name="" id="" value="Login" className="btn1 solid" />
-                    <p className="social-text">
-                        O inicie sesión directamente desde Google
-                    </p>
-                    <div className="social-media">
-                        <a href="#" className="social-icon">
-                            <i className="fab fa-google"></i>
-                        </a>
-                    </div>
+                    
                 </form>
             </div>
         </div>
