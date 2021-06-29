@@ -51,7 +51,7 @@ export default function listarVueltaPage() {
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>AK7-425</td>
+                                            <td>AAA-111</td>
                                             <td>A</td>
                                             <td>
                                                 <div className="text-center">
@@ -61,7 +61,7 @@ export default function listarVueltaPage() {
                                                         </Dropdown.Toggle>
 
                                                         <Dropdown.Menu>
-                                                            <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                                                            <Dropdown.Item href="/admin/listarControlPage">1</Dropdown.Item>
                                                             <Dropdown.Item href="#/action-2">2</Dropdown.Item>
                                                             <Dropdown.Item href="#/action-1">3</Dropdown.Item>
                                                             <Dropdown.Item href="#/action-2">4</Dropdown.Item>
@@ -82,7 +82,7 @@ export default function listarVueltaPage() {
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>FBW-487</td>
+                                            <td>AAA-115</td>
                                             <td>B</td>
                                             <td>
                                                 <div className="text-center">
@@ -103,7 +103,7 @@ export default function listarVueltaPage() {
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>F5D-452</td>
+                                            <td>AAA-124</td>
                                             <td>A</td>
                                             <td>
                                                 <div className="text-center">

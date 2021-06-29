@@ -22,6 +22,7 @@ export default function AppRouter() {
                 <Route path="/admin/rutas" component={Rutas} />
                 <Route path="/admin/consulta" component={ListarVueltaPage} />
                 <Route path="/admin/rastreoBuses" component={RastreoBusesPage} />
+                <Route path="/admin/listarControlPage" component={ListarControlPage} />
             </Switch>
         </Router>
     )
